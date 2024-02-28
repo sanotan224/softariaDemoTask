@@ -25,4 +25,8 @@ public class SiteTable {
     public int getSize() {
         return hashtable.size();
     }
+
+    public boolean isEmpty() {
+        return hashtable.isEmpty();
+    }
 }

@@ -13,4 +13,6 @@ public class Consts {
             "С уважением,\n%s.";;
     public static final String RECEIVER_NAME = "и. о. секретаря";
     public static final String NO_CHANGES_MSG = "Не произошло никаких изменений";
+    public static final String COMMA = ", ";
+    public static final String NEW_LINE = "\n";
 }

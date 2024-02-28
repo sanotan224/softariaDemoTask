@@ -24,14 +24,14 @@ public class TableHandler {
             ISitesComparator comparator = (ISitesComparator) context.getBean(comparatorName);
             SiteTable result = comparator.getDifferences(sitesToday, sitesYesterday);
 
-            if (result.getSize() != 0) {
+            if (!result.isEmpty()) {
                 stringBuilder.append(comparator.getDesc());
-                stringBuilder.append(Stream.of(result.getUrls()).collect(Collectors.joining(", ")));
-                stringBuilder.append("\n");
+                stringBuilder.append(Stream.of(result.getUrls()).collect(Collectors.joining(Consts.COMMA)));
+                stringBuilder.append(Consts.NEW_LINE);
             }
         }
 
-        if (stringBuilder.length() == 0) {
+        if (stringBuilder.isEmpty()) {
             stringBuilder.append(Consts.NO_CHANGES_MSG);
         }
         return stringBuilder.toString();
