@@ -1,12 +1,11 @@
 package rus.nsk.softaria.demo.shtang;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import rus.nsk.softaria.demo.shtang.entities.SiteTable;
 import rus.nsk.softaria.demo.shtang.handlers.TableHandler;
 import rus.nsk.softaria.demo.shtang.messages.MessageGenerator;
 
-@SpringBootApplication
+
 public class Main {
     public static void main(String[] args) {
         SiteTable sitesYesterday = new SiteTable();

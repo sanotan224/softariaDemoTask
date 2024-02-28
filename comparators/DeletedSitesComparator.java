@@ -4,11 +4,10 @@ import org.springframework.stereotype.Component;
 import rus.nsk.softaria.demo.shtang.Consts;
 import rus.nsk.softaria.demo.shtang.entities.SiteTable;
 
-
 @Component
 public class DeletedSitesComparator implements ISitesComparator {
     @Override
-    public SiteTable compare(SiteTable sitesToday, SiteTable sitesYesterday) {
+    public SiteTable getDifferences(SiteTable sitesToday, SiteTable sitesYesterday) {
         SiteTable result = new SiteTable();
 
         for (String url : sitesYesterday.getUrls()) {

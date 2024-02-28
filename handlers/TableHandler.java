@@ -5,8 +5,9 @@ import org.springframework.stereotype.Component;
 import rus.nsk.softaria.demo.shtang.Consts;
 import rus.nsk.softaria.demo.shtang.comparators.ISitesComparator;
 import rus.nsk.softaria.demo.shtang.entities.SiteTable;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import java.util.Arrays;
 @Component
 public class TableHandler {
     private final ApplicationContext context;
@@ -21,11 +22,11 @@ public class TableHandler {
 
         for (String comparatorName : comparatorsName) {
             ISitesComparator comparator = (ISitesComparator) context.getBean(comparatorName);
-            SiteTable result = comparator.compare(sitesToday, sitesYesterday);
+            SiteTable result = comparator.getDifferences(sitesToday, sitesYesterday);
 
             if (result.getSize() != 0) {
                 stringBuilder.append(comparator.getDesc());
-                stringBuilder.append((Arrays.toString(comparator.compare(sitesToday, sitesYesterday).getUrls())));
+                stringBuilder.append(Stream.of(result.getUrls()).collect(Collectors.joining(", ")));
                 stringBuilder.append("\n");
             }
         }
